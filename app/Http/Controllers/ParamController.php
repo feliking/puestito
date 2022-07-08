@@ -25,7 +25,7 @@ class ParamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Param::create($request->all());
     }
 
     /**
@@ -46,9 +46,12 @@ class ParamController extends Controller
      * @param  \App\Models\Params  $params
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Params $params)
+    public function update(Request $request, $id)
     {
-        //
+        $param = Param::findOrFail($id);
+        $param->fill($request->all());
+        $param->save();
+        return $param;
     }
 
     /**
@@ -57,7 +60,7 @@ class ParamController extends Controller
      * @param  \App\Models\Params  $params
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Params $params)
+    public function destroy(Param $param)
     {
         //
     }

@@ -17,8 +17,12 @@ class AllSeeder extends Seeder
     public function run()
     {
         Param::create([
-            'key' => 'config',
+            'key' => 'name_store',
             'value' => 'Nombre de la tienda'
+        ]);
+        Param::create([
+            'key' => 'logo_store',
+            'value' => 'path'
         ]);
     }
 }

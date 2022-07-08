@@ -48,13 +48,13 @@
                             <!-- header logo -->
                             <div class="header-logo">
                                 <a href="/">
-                                    <img src="/img/logo.png" class="img-fluid" alt="">
+                                    <img src="{{ asset($params[1]->value) }}" class="img-fluid" alt="">
                                 </a>
                             </div>
                         </div>
                         <div class="col d-flex justify-content-right">
                             <div class="header-search">
-                                Nombre de la tienda
+                                <h4>{{ $params[0]->value }}</h4>
                             </div>
                         </div>
                         {{-- <div class="col-auto">
