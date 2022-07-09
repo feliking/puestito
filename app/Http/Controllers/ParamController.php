@@ -14,7 +14,7 @@ class ParamController extends Controller
      */
     public function index()
     {
-        return Param::get();
+        return Param::orderBy('id')->get();
     }
 
     /**
