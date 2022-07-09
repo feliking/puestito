@@ -10,20 +10,20 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     public function main () {
-        $params = Param::get();
+        $params = Param::orderBy('id')->get();
         $categories = Category::get();
         $products = Product::with('documents')->where('state', true)->get();
         return view('pages.index', ['categories' => $categories, 'products' => $products, 'params' => $params]);
     }
 
     public function product ($id) {
-        $params = Param::get();
+        $params = Param::orderBy('id')->get();
         $product = Product::with('documents', 'colors')->findOrFail($id);
         return view('pages.product', ['product' => $product, 'params' => $params]);
     }
 
     public function categoryProduct ($category_id) {
-        $params = Param::get();
+        $params = Param::orderBy('id')->get();
         $categories = Category::get();
         $category = Category::findOrFail($category_id);
         $products = Product::with('documents')->where('state', true)->where('category_id', $category_id)->get();
